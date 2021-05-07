@@ -1,5 +1,37 @@
+<%= form_with(model: @list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
 
-<table class="table table-bordered">
+      <ul>
+        <% list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2 class="title-2">ajoute ton matériel :</h2>
+  <div style="display: flex !important">
+      <%= f.text_field :description, class: "form-control" %>
+      <%= f.submit "Ajouter", class: 'boutton' %>
+  </div>
+
+<% end %>
+<div class="d-flex">
+  <div class="deleteclassed d-flex">
+    <img class="trash" src="/images/Trashcan.png">
+    <%= link_to 'Supprimer tous les éléments rangés', home_trash_em_path, data: { confirm: 'Êtes-vous sûr ?' } %>
+  </div>
+
+  <div class="deleteall d-flex">
+    <img class="trashall" src="/images/Trashcan.png">
+    <%= link_to 'Tout supprimer', home_trash_em_all_path, data: { confirm: 'Êtes-vous sûr ?' } %>
+  </div>
+</div>
+
+
+<table class="table mt-5">
 
   <tbody>
     <% @lists.each do |list| %>
@@ -13,11 +45,11 @@
             <%= form_for(list) do |f| %>
             <%= f.text_field :description, type: 'hidden' %>
             <%= f.check_box :completed, :checked => false, :style =>'visibility: hidden' %>
-            <%= f.submit "Uncross", class: 'btn btn-outline-secondary btn-sm' %>
+            <%= f.submit "Non-rangé", class: 'btn btn-outline-secondary btn-sm' %>
             <% end %>
           </center>
         </td>
-        <td><%= link_to 'Delete', list, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Supprimer', list, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
       <% else %>
@@ -29,11 +61,11 @@
             <%= form_for(list) do |f| %>
             <%= f.text_field :description, type: 'hidden' %>
             <%= f.check_box :completed, :checked => true, :style =>'visibility: hidden' %>
-            <%= f.submit "Cross Off", class: 'btn btn-outline-secondary btn-sm' %>
+            <%= f.submit "Ranger", class: 'btn btn-outline-secondary btn-sm' %>
             <% end %>
         </center>
         </td>
-        <td><%= link_to 'Delete', list, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Supprimer', list, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></td>
       </tr>
 
       <% end %>
@@ -43,5 +75,3 @@
 
 <br>
 
-<%= link_to 'Delete Marked Items', home_trash_em_path, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Delete All Items', home_trash_em_all_path, data: { confirm: 'Are you sure?' } %>

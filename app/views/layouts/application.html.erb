@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CheckmyShoot</title>
+    <title>checkmyShoot</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +11,19 @@
   </head>
 
   <body>
+  <a href="https://checkmyshoot.herokuapp.com"><img class="image" src="/images/blanccrop.png"></a>
+  <br>
+  <br>
+  <br>
 
-    <%= render "lists/navbar" %>
-    <div class="container">
+<h1 style="text-align:center">organise tes tournages,<br>
+tourne sereinement.</h1>
+    <div class="container-all">
+      <h2 class="materiel">ajoute ton matériel :</h2>
       <%= render "lists/flash" %>
-    <%= yield %>
+      <h2 class="checklist">ta checklist :</h2>
+      
     </div>
+      <%= yield %>
   </body>
 </html>
