@@ -11,13 +11,16 @@
   </head>
 
   <body>
-    <!--<a href="https://checkmyshoot.herokuapp.com"><img class="image" src="/images/blanccrop.png"></a>
-    <h1 style="text-align:center">organise tes tournages, tourne sereinement.</h1>
-    <h2 class="materiel">ajoute ton matériel :</h2>
+    <!--<h2 class="materiel">ajoute ton matériel :</h2>
     <%= render "lists/flash" %>
     <h2 class="checklist">ta checklist :</h2>-->
 
     <div class="container main">
+      <header>
+        <a href="https://checkmyshoot.herokuapp.com"><img class="serenade-logo" src="/images/blanccrop.png"></a>
+        <h1 style="text-align:center">organise tes tournages, tourne sereinement.</h1>
+      </header>
+
       <%= yield %>
     </div>
 

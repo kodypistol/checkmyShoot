@@ -42,8 +42,22 @@
 }
 
 .container.main {
-    width: 50%;
+    width: 30%;
     margin: 0 auto;
+
+    header {
+        margin-bottom: 70px;
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        .serenade-logo {
+            display: block;
+            width: 50%;
+            margin: 0px auto 40px auto;
+        }
+    }
 }
 
 body{
